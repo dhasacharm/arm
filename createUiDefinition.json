@@ -1,0 +1,48 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json#",
+    "handler": "Microsoft.Azure.CreateUIDef",
+    "version": "0.1.2-preview",
+    "parameters": {
+      "basics": [
+        {}
+      ],
+      "steps": [
+        {
+            "name": "customDD",
+            "label": "DD custom settings",
+            "elements": [
+                {
+                    "name": "tenentId",
+                    "type": "Microsoft.Common.TextBox",
+                    "label": "tenent Id",
+                    "placeholder": "",
+                    "defaultValue": "my text value",
+                    "toolTip": "Use only allowed characters",
+                    "constraints": {
+                        "required": true,
+                        "validationMessage": "Only alphanumeric characters are allowed, and the value must be 1-30 characters long."
+                    },
+                    "visible": true
+                },
+                {
+                    "name": "clientid",
+                    "type": "Microsoft.Common.TextBox",
+                    "label": "client id",
+                    "placeholder": "",
+                    "defaultValue": "my text value",
+                    "toolTip": "Use only allowed characters",
+                    "constraints": {
+                        "required": true,
+                        "validationMessage": "Only alphanumeric characters are allowed, and the value must be 1-30 characters long."
+                    },
+                    "visible": true
+                }
+            ]
+        }
+      ],
+      "outputs": {
+        "tenentId":"[steps('customDD').tenentId.label]",
+        "clientid":"[steps('customDD').clientid.label]"
+      }
+    }
+  }
